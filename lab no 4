@@ -1,0 +1,56 @@
+Task no 1
+Insertion at the mid of singly linked list.
+
+#include<iostream>
+using namespace std;
+class Node{
+	public:
+		int data;
+		Node* next;
+		Node(int data){
+			this->data=data;
+			this->next=NULL;
+		}
+};
+void insertAtMid(Node* &head, int d) {
+    if (head == NULL) {
+        head = new Node(d);
+        return;
+    }
+    Node* temp = head;
+    Node* f = head;
+    while (f && f->next) {
+        temp = temp->next;
+        f = f->next->next;
+    }
+    Node* n = new Node(d);
+    n->next = temp->next;
+    temp->next = n;
+}
+void print(Node* &head){
+	Node* n = head;
+	while(n!=NULL){
+		cout<<n->data<<" ";
+		n = n->next;
+	}
+	cout<<endl;
+}
+int main(){
+	Node* node1 = new Node(10);
+	Node* node2 = new Node(20);
+	Node* node3 = new Node(30);
+	Node* node4 = new Node(40);
+	// linking list
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = node4;
+	
+	Node* head = node1;
+	print(head);
+	
+	insertAtMid(head, 25);
+    cout << "After Insertion in the Start: ";
+    print(head);
+	return 0;
+	
+}
