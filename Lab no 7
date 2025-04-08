@@ -1,0 +1,66 @@
+Task no 1
+Imagine you are managing a stack of plates in the kitchen. You can only stack up to 3 plates. The program should Add a plate to the stack. Remove the top plate from the stack when needed. Check which plate is currently on top of the stack. The program will handle cases when the stack is full (can’t add more plates) or empty (can’t remove plates). 
+
+#include <iostream>
+using namespace std;
+
+class PlateStack {
+private:
+    int stack[3];
+    int top;
+
+public:
+    PlateStack() {
+        top = -1;
+    }
+    void push(int plate) {
+        if (top == 2) {
+            cout << "Stack is full. Cannot add more plates.\n";
+        } else {
+            top++;
+            stack[top] = plate;
+            cout << "Plate " << plate << " added to the stack.\n";
+        }
+    }
+    void pop() {
+        if (top == -1) {
+            cout << "Stack is empty. Cannot remove any plates.\n";
+        } else {
+            cout << "Plate " << stack[top] << " removed from the stack.\n";
+            top--;
+        }
+    }
+    void peek() {
+        if (top == -1) {
+            cout << "Stack is empty. No top plate.\n";
+        } else {
+            cout << "Top plate is: " << stack[top] << endl;
+        }
+    }
+    void display() {
+        if (top == -1) {
+            cout << "Stack is empty.\n";
+        } else {
+            cout << "Current plates in stack (top to bottom): ";
+            for (int i = top; i >= 0; i--) {
+                cout << stack[i] << " ";
+            }
+            cout << endl;
+        }
+    }
+};
+int main() {
+    PlateStack ps;
+    ps.push(101);
+    ps.push(102);
+    ps.push(103);
+    ps.push(104);  
+    ps.peek();  
+    ps.display(); 
+    ps.pop();
+    ps.pop();
+    ps.pop();
+    ps.pop();    
+    return 0;
+}
+
