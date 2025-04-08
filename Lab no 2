@@ -1,0 +1,19 @@
+Task no 1
+Write a C++ program that defines a function to swap two integers using pointers. Demonstrate the swap operation in the main function.
+
+#include <iostream>
+using namespace std;
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main() {
+    int x = 10, y = 20;
+    cout << "Before swap:" << endl;
+    cout << "x = " << x << ", y = " << y << endl;
+    swap(&x, &y);
+    cout << "After swap:" << endl;
+    cout << "x = " << x << ", y = " << y << endl;
+    return 0;
+}
